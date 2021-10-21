@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+<title>CONSULTORIO ODONTOLOGICO DENTAL "MUELITAS"</title>
+    <link rel="stylesheet" href="{% static 'estilos.css' %}">
+    <center><h1>CONSULTORIO ODONTOLOGICO DENTAL "MUELITAS"</h1></center>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+
+
+    <title>
+        {% block titulohj%} {% endblock %}
+    </title>
+    {% load static %}
+    <link style="background-color:#d8af97;">
+    <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/fontello.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/solid.css' %}">
+
+
+</head>
+<body style="background-color:#d8af97;">
+<style type="text/css">
+  body {
+    font-family: arial;
+    color: black;
+
+
+
+</style>
+
+<div>
+
+    <nav class="nav justify-content-center" style="background-color:#84b6f4">
+
+        <ul class="menu">
+
+            {% load static %}
+
+            <li><a href="{% url 'home' %}" class="c-3 d-flex align-items-center">
+                <div class="d-flex flex-column text-center">
+                    <CENTER><i class="fas fa-home" style="font-size:20px"></i></CENTER>
+                    <span>INICIO</span>
+                </div>
+            </a></li>
+
+            <li><a href="{% url 'doctorlistar' %}" class="c-3 d-flex align-items-center">
+                <div class="d-flex flex-column text-center">
+                    <CENTER><i class="fas fa-user-md" style="font-size:20px"></i></CENTER>
+                    <span>DOCTOR</span>
+                </div>
+            </a></li>
+
+                 <li><a href="{% url 'pacientelistar' %}" class="c-3 d-flex align-items-center">
+                <div class="d-flex flex-column text-center">
+                    <CENTER><i class="fas fa-user" style="font-size:20px"></i></CENTER>
+                    <span>PACIENTE</span>
+                </div>
+            </a></li>
+
+
+            <li><a href="{% url 'cita_medicalistar' %}" class="c-3 d-flex align-items-center">
+                <div class="d-flex flex-column text-center">
+                    <CENTER><i class="fas fa-calendar-alt" style="font-size:20px"></i></CENTER>
+                    <span>CITA MEDICA</span>
+                 </div>
+            </a></li>
+
+            <li><a  href="{% url 'especialidadlistar' %}" class="c-3 d-flex align-items-center">
+                <div class="d-flex flex-column text-center">
+                    <CENTER><i class="fas fa-tooth" style="font-size:20px"></i></CENTER>
+                    <span>ESPECIALIDAD</span>
+                </div>
+            </a></li>
+
+            <li><a href="{% url 'ficha_medica_listar' %}" class="c-3 d-flex align-items-center">
+                   <div class="d-flex flex-column text-center">
+                    <CENTER><i class="fas fa- fa-comment-medical" style="font-size:20px"></i></CENTER>
+                    <span>FICHA MEDICA</span>
+                </div>
+            </a></li>
+
+            <li><a href="{% url 'contacto' %}" class="c-3 d-flex align-items-center">
+                <div class="d-flex flex-column text-center">
+                    <CENTER><i class="fas fa-address-book" style="font-size:20px"></i></CENTER>
+                    <span>CONTACTO</span>
+                </div>
+            </a></li>
+            <li><a href="{% url 'logout' %}"class="c-3 d-flex align-items-center">
+                <div class="d-flex flex-column text-center">
+                    <CENTER><i class="fas fa-sign-out-alt" style="font-size:20px"></i></CENTER>
+                    <span>CERRAR SESION</span>
+                </div>
+            </a></li>
+        </ul>
+   </nav>
+
+</div>
+
+
+{% block contenidohj%}
+{% endblock%}
+
+
+
+<script src="{% static 'core/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'core/js/popper.min.js' %}"></script>
+<script src="{% static 'core/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'core/js/fontawesome.js' %}"></script>
+<script src="{% static 'core/js/scripts.js' %}"></script>
+<script src="{% static 'core/js/solid.js' %}"></script>
+
+
+<footer>
+
+    <div class="col-12 text-center copyright">
+        <samp>
+            Copyright &copy; 2021
+            · Heidy Salazar
+            · Alam Toledo
+            · Adrian Zambrano
+        </samp>
+    </div>
+
+
+</footer>
+</body>
+</html>
+
+

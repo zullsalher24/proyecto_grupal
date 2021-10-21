@@ -1,0 +1,21 @@
+{% extends 'inicio.html'%}
+{%block contenidohj%}
+<center>
+<h1> Crear Nueva Cita Medica</h1>
+
+
+<form method="post">
+
+    {{ form.as_p }}
+    {% csrf_token %}
+
+
+
+ 	          <button type="submit" class="btn btn-success">GUARDAR</button>
+            <a class="btn btn-danger" href="{% url 'cita_medicalistar' %}" role="button">CANCELAR</a>
+
+
+
+</form>
+</center>
+{% endblock %}

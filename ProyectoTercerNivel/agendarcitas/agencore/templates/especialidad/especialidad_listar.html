@@ -1,0 +1,54 @@
+{% extends 'inicio.html' %}
+{%block contenidohj%}
+
+<center>
+    <h1>Lista de Especialidad</h1>
+
+      <div class="form-group">
+        <form action="/buscar3/" method="get">
+        <input type="text" name="pwd" placeholder="Especialidad">
+            <input type="submit" value="Buscar">
+
+        </form>
+</div>
+<div class="form-group">
+    <a href="{% url 'especialidadcrear'  %}" class="btn btn-primary">Nuevo</a>
+    <a href="{% url 'especialidadpdf'  %}"class="btn btn-primary">Imprimir</a>
+</div>
+    <TABLE class="table table-danger table-striped table-bordered table-hover">
+        <TR>
+
+            <TH>Fecha registro</TH>
+            <TH>Fecha modificación</TH>
+            <TH>ID</TH>
+
+              <TH>Especialiad</TH>
+
+            <TH>Estado</TH>
+            <TH>Modificar</TH>
+            <TH>Imprimir</TH>
+
+        </TR>
+        {% for presenta in object_list %}
+        <TR>
+            <TD>{{ presenta.especialidadfecharegistro }}</TD>
+            <TD>{{ presenta.especialidadfechamodificacion }}</TD>
+            <TD>{{ presenta.id }}</TD>
+            <TD>{{ presenta.especialidadnombre}}</TD>
+
+            <TD>{{ presenta.especialidadestado}}</TD>
+
+            <td><a href="{% url 'especialidadmodificar' presenta.id %}" class="d-flex flex-column text-center"class="d-flex flex-column text-center"onClick="return confirm('¿Quieres modificar La Especialidad: {{presenta.especialidadnombre}}?');">
+                <center><i class="fas fa-history" style="font-size:24px"></i></center>
+            </a></td>
+            <td><a href="{% url 'especialidadindivpdf' presenta.id %}" class="d-flex flex-column text-center">
+                <center><i class="fas fa-print" style="font-size:24px"></i></center>
+            </a></td>
+        </TR>
+        {% endfor %}
+
+
+    </TABLE>
+
+</center>
+{% endblock %}

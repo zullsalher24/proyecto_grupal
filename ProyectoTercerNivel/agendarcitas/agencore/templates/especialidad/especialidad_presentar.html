@@ -1,0 +1,48 @@
+{% extends 'inicio.html' %}
+{%block contenidohj%}
+<center>
+    <h1>Especialidad</h1>
+
+    <div class="form-group">
+
+        <form action="/buscar3/" method="get">
+        <input type="text" name="pwd" placeholder="Especialidad">
+            <input type="submit" value="Buscar">
+        </form>
+            </div>
+
+    <div class="form-group">
+        <a href="{% url 'especialidadlistar'  %}" class="btn btn-primary">Todos</a>
+
+    </div>
+
+    <TABLE class="table table-danger table-striped table-bordered table-hover">
+           <TR>
+
+            <TH>Fecha registro</TH>
+            <TH>Fecha modificación</TH>
+            <TH>ID</TH>
+               <TH>Especialiad</TH>
+
+            <TH>Estado</TH>
+            <TH>Modificar</TH>
+            <TH>Imprimir</TH>
+
+        </TR>
+        {% for presenta in doct %}
+        <TR>
+            <TD>{{ presenta.especialidadfecharegistro }}</TD>
+            <TD>{{ presenta.especialidadfechamodificacion }}</TD>
+            <TD>{{ presenta.id }}</TD>
+            <TD>{{ presenta.especialidadnombre}}</TD>
+
+            <TD>{{ presenta.especialidadestado}}</TD>
+
+        {% endfor %}
+
+
+    </TABLE>
+
+</center>
+
+{% endblock %}

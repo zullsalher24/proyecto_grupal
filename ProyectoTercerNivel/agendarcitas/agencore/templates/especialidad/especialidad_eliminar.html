@@ -1,0 +1,14 @@
+{% extends 'inicio.html'%}
+{%block contenidohj%}
+ <h1>Eliminar (DeleteView)</h1>
+
+<a  href="{% url 'especialidadlistar' %}"> cancelar </a>
+<form method="post">
+    {% csrf_token %}
+
+     <p>¿Estás seguro de que quieres Eliminar <b>"{{ object.especialidadnombre }}"</b>?</p>
+    <input type="submit" value="Eliminar" />
+</form>
+
+
+{% endblock %}

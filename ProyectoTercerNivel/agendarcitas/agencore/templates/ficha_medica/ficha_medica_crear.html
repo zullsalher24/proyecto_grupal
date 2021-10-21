@@ -1,0 +1,25 @@
+{% extends 'inicio.html'%}
+{%block contenidohj%}
+<center>
+
+<h1> Crear Nueva Ficha Médica</h1>
+<p>
+
+<form method="post">
+
+    {{ form.as_p}}
+
+    {% csrf_token %}
+
+
+
+    <p><div class="form-group">
+
+ 	          <button type="submit" class="btn btn-success">GUARDAR</button>
+            <a class="btn btn-danger" href="{% url 'ficha_medica_listar' %}" role="button">CANCELAR</a>
+
+</div>
+
+</form>
+</center>
+{% endblock %}

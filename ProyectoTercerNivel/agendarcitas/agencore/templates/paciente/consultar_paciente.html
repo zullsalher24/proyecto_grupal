@@ -1,0 +1,66 @@
+{% extends 'inicio.html'%}
+{% block contenidohj%}
+{% load static %}
+
+<center>
+    <h1>Listas de Paciente</h1>
+
+
+    <div class="form-group">
+
+        <form action="/buscar1/" method="get">
+        <input type="text" name="pwd" placeholder="Cédula">
+            <input type="submit" value="Buscar">
+        </form>
+            </div>
+
+<div class="form-group">
+    <a href="{% url 'pacienteaguardar'  %}" class="btn btn-primary">Nuevo</a>
+    <a href="{% url 'pacientepdf'  %}"class="btn btn-primary">Imprimir</a>
+
+</div>
+    <TABLE class="table table-danger table-striped table-bordered table-hover">
+
+        <TR>
+            <TH>Fecha Registro</TH>
+            <TH>Fecha Modificación</TH>
+            <TH>Cedula</TH>
+            <TH>Apellido</TH>
+            <TH>Nombres</TH>
+            <TH>Dirección</TH>
+            <TH>Estado</TH>
+
+            <TH>Modificar</TH>
+            <TH>Imprimir</TH>
+
+
+        </TR>
+        {% for presenta in cargapcte %}
+        <TR>
+            <TD>{{ presenta.pacientefecharegistro}}</TD>
+            <TD>{{ presenta.pacientefechamodificacion}}</TD>
+            <TD>{{ presenta.pacientecedula}}</TD>
+            <TD>{{ presenta.pacienteapellido }}</TD>
+            <TD>{{ presenta.pacientenombre }}</TD>
+            <TD>{{ presenta.pacientedireccion }}</TD>
+            <TD>{{ presenta.pacienteestado}}</TD>
+
+
+
+
+            <td><a href="/pacientemodificar/edit/{{ presenta.id }}" class="d-flex flex-column text-center"onClick="return confirm('¿Quieres modificar al Paciente: {{presenta.pacienteapellido}} {{presenta.pacientenombre}}?');">
+                <center><i class="fas fa-history" style="font-size:24px"></i></center>
+            </a></td>
+            <td><a href="{% url 'pacienteindividual' presenta.id %}" class="d-flex flex-column text-center">
+                <center><i class="fas fa-print" style="font-size:24px"></i></center>
+            </a></td>
+
+        </TR>
+        {% endfor %}
+
+
+    </TABLE>
+
+</center>
+
+{% endblock %}

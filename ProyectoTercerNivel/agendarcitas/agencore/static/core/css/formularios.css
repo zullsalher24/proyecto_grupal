@@ -1,0 +1,12 @@
+
+html{
+    background: url("../img/muelitas (14).jpeg") no-repeat;
+    background-size: cover;
+    min-height: 100%;
+}
+
+body{
+    background:none;
+}
+
+#advanced-search-form{

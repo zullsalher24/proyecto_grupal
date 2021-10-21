@@ -1,0 +1,13 @@
+html{
+    background: url("../img/1.jpeg") no-repeat;
+	background-size: cover;
+    min-height: 100%;
+}
+
+body{
+    background:none;
+}
+
+#advanced-search-form{
+
+}

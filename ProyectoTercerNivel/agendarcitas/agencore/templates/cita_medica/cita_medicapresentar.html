@@ -1,0 +1,65 @@
+{% extends 'inicio.html' %}
+{%block contenidohj%}
+
+<center>
+    <h1>Cita Medica</h1>
+
+       <div class="form-group">
+
+        <form action="/buscar2/" method="get">
+        <input type="text" name="pwd" placeholder="Codigo de cita ">
+            <input type="submit" value="Buscar">
+        </form>
+            </div>
+
+
+    <p><a href="{% url 'cita_medicalistar'  %}" class="btn btn-primary">Todos</a>
+
+    <TABLE class="table table-danger table-striped table-bordered table-hover">
+        <TR>
+
+            <TH>Fecha registro</TH>
+            <TH>Fecha modificación</TH>
+            <TH>ID</TH>
+            <th>Codigo</th>
+            <TH>Paciente</TH>
+            <TH>Doctor</TH>
+            <TH>Especialidad</TH>
+            <TH>Fecha</TH>
+            <TH>Hora</TH>
+            <TH>Estado</TH>
+            <TH>Modificar</TH>
+            <TH>Imprimir</TH>
+
+        </TR>
+        {% for presenta in doct %}
+        <TR>
+
+            <TD>{{ presenta.cita_medicaregistro }}</TD>
+            <TD>{{ presenta.cita_medicamodificacion }}</TD>
+            <TD>{{ presenta.id }}</TD>
+            <TD> {{ presenta.cita_medicacodigo }}</TD>
+            <TD> {{ presenta.id_paciente }}</TD>
+            <TD> {{ presenta.id_doctor }}</TD>
+               <TD> {{ presenta.id_especialidad }}</TD>
+                <TD> {{ presenta.cita_medicafecha }}</TD>
+                <TD> {{ presenta.cita_medicahora }}</TD>
+                <TD> {{ presenta.cita_medicaestado }}</TD>
+
+
+            <td><a href="{% url 'cita_medicamofificar' presenta.id %}" class="d-flex flex-column text-center"onClick="return confirm('¿Quieres modificar la cita medica Espcialidad: {{presenta.id_especialidad}} del Paciente  {{presenta.id_paciente}}?');">
+                <center><i class="fas fa-history" style="font-size:24px" ></i></center>
+            </a></td>
+            <td><a href="{% url 'cita_medindivpdf' presenta.id %}" class="d-flex flex-column text-center">
+                <center><i class="fas fa-print" style="font-size:24px"></i></center>
+            </a></td>
+
+        </TR>
+
+        {% endfor %}
+
+
+    </TABLE>
+
+</center>
+{% endblock %}

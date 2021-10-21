@@ -1,0 +1,68 @@
+{% extends 'inicio.html' %}
+{%block contenidohj%}
+<center>
+    <h1>Ficha Médica</h1>
+
+    <div class="form-group">
+
+        <form action="/buscar4/" method="get">
+            <input type="text" name="pwd" placeholder="Código Ficha">
+            <input type="submit" value="Buscar">
+        </form>
+            </div>
+
+    <div class="form-group">
+        <a href="{% url 'ficha_medica_listar'  %}" class="btn btn-primary">Todos</a>
+
+    </div>
+
+    <TABLE class="table table-danger table-striped table-bordered table-hover">
+        <TR>
+
+            <TH>Fecha registro</TH>
+            <TH>Fecha modificación</TH>
+            <TH>ID</TH>
+            <TH>Codigo Ficha</TH>
+            <TH>Paciente</TH>
+            <TH>Doctor</TH>
+            <TH>Especialidad</TH>
+            <TH>Cita Medica</TH>
+            <TH>Diagnostico</TH>
+            <TH>Tratamiento</TH>
+            <TH>EStado</TH>
+            <TH>Modificar</TH>
+            <TH>Imprimir</TH>
+
+        </TR>
+        {% for presenta in doct %}
+
+        <TR>
+            <TD>{{ presenta.ficha_medica_registro}}</TD>
+            <TD>{{ presenta.ficha_medica_modificacion }}</TD>
+            <TD>{{ presenta.id }}</TD>
+            <TD>{{ presenta.ficha_medica_codigo}}</TD>
+            <TD>{{ presenta.id_paciente}}</TD>
+            <TD>{{ presenta.id_doctor}}</TD>
+            <TD>{{ presenta.id_especialidad }}</TD>
+            <TD>{{ presenta.id_cita_medica }}</TD>
+            <TD>{{ presenta.ficha_medica_diagnostico }}</TD>
+            <TD>{{ presenta.ficha_medica_tratamiento }}</TD>
+            <TD>{{ presenta.ficha_medica_estado}}</TD>
+
+
+            <td><a href="{% url 'ficha_medica_modificar' presenta.id %}" class="d-flex flex-column text-center"class="d-flex flex-column text-center"onClick="return confirm('¿Quieres modificar La Ficha Medica de: {{ presenta.id_paciente}} ?');">
+                <center><i class="fas fa-history" style="font-size:24px"></i></center>
+            </a></td>
+            <td><a href="{% url 'ficha_medicaindivpdf' presenta.id %}" class="d-flex flex-column text-center">
+                <center><i class="fas fa-print" style="font-size:24px"></i></center>
+            </a></td>
+
+        </TR>
+        {% endfor %}
+
+
+    </TABLE>
+
+</center>
+
+{% endblock %}

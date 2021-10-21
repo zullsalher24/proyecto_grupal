@@ -1,0 +1,21 @@
+{% extends 'inicio.html' %}
+{%block contenidohj%}
+
+<center>
+<h1>Modifica Ficha Médica</h1>
+
+    <form method="post">
+
+        {{ form.as_p }}
+
+        {% csrf_token %}
+
+
+<p><div>
+        <button type="submit" class="btn btn-success">Actualizar</button>
+        <a class="btn btn-danger" href="{% url 'ficha_medica_listar' %}" role="button">Cancelar</a>
+</div>
+    </form>
+
+</center>
+{% endblock %}

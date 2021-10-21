@@ -1,0 +1,61 @@
+{% extends 'inicio.html' %}
+{%block contenidohj%}
+
+<center>
+    <h1>Lista de Doctores</h1>
+
+      <div class="form-group">
+        <form action="/buscar/" method="get">
+        <input type="text" name="pwd" placeholder="Cédula">
+            <input type="submit" value="Buscar">
+
+        </form>
+</div>
+<div class="form-group">
+    <a href="{% url 'doctorcrear'  %}" class="btn btn-primary">Nuevo</a>
+    <a href="{% url 'doctorpdf'  %}"class="btn btn-primary">Imprimir</a>
+</div>
+    <TABLE class="table table-danger table-striped table-bordered table-hover">
+        <TR>
+
+            <TH>Fecha registro</TH>
+            <TH>Fecha modificación</TH>
+            <TH>ID</TH>
+            <TH>Cedula</TH>
+            <TH>Registro</TH>
+              <TH>Especialiad</TH>
+            <TH>Apellidos</TH>
+            <TH>Nombres</TH>
+            <TH>Dirección</TH>
+            <TH>Estado</TH>
+            <TH>Modificar</TH>
+            <TH>Imprimir</TH>
+
+        </TR>
+        {% for presenta in object_list %}
+        <TR>
+            <TD>{{ presenta.doctorfecharegistro }}</TD>
+            <TD>{{ presenta.doctorfechamodificacion }}</TD>
+            <TD>{{ presenta.id }}</TD>
+            <TD>{{ presenta.doctorcedula }}</TD>
+            <TD>{{ presenta.doctorregistro }}</TD>
+            <TD>{{ presenta.id_especialidad }}</TD>
+            <TD>{{ presenta.doctorapellido }}</TD>
+            <TD>{{ presenta.doctornombre}}</TD>
+            <TD>{{ presenta.doctordireccion}}</TD>
+            <TD>{{ presenta.doctorestado}}</TD>
+
+            <td><a href="{% url 'doctormodificar' presenta.id %}" class="d-flex flex-column text-center" onClick="return confirm('¿Quieres modificar al Doctor: {{presenta.doctorapellido}} {{presenta.doctornombre}}?');">
+                <center><i class="fas fa-history" style="font-size:24px"></i></center>
+            </a></td>
+            <td><a href="{% url 'doctorindivpdf' presenta.id %}" class="d-flex flex-column text-center">
+                <center><i class="fas fa-print" style="font-size:24px"></i></center>
+            </a></td>
+        </TR>
+        {% endfor %}
+
+
+    </TABLE>
+
+</center>
+{% endblock %}
